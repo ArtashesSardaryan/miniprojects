@@ -1,0 +1,3 @@
+simon 25
+levik 45
+mariam 18

@@ -1,8 +1,15 @@
+'''
+About Programm : A program that will separate the files based on the types(docs, pdf, jpg, etc). The
+source directory should be passed as an argument.
+Version : 1.0
+Author : Artash
+'''
 import os
 import shutil
 import sys
 
 def separate_files(source_dir):
+    '''Function To separate'''
     # Create directories for each file type
     file_types = set()
     for filename in os.listdir(source_dir):

@@ -1,21 +1,32 @@
+'''
+About Programm : Word Frequency Counter: Write a program that analyzes a text file and counts the
+frequency of each word. Remove common stop words and punctuation marks to
+get more accurate results. Display the top N most frequent words and their
+frequencies.
+Version : 1.0
+Author : Artash
+'''
 import string
 from collections import Counter
 
 def remove_punctuation(text):
+    '''Function To remove punctuation'''
     translator = str.maketrans('', '', string.punctuation)
     return text.translate(translator)
 
 def word_frequency(text, stop_words, top_n):
+    '''Function word frequency take 3 arguments'''
     words = text.lower().split()
     words = [remove_punctuation(word) for word in words if word not in stop_words]
     word_count = Counter(words)
     return word_count.most_common(top_n)
 
 def main():
-    with open('input.txt', 'r') as file:
+    '''Function main'''
+    with open('input.txt', 'r' ) as file:
         text = file.read()
 
-    # Common stop words
+    # Common stop words or ussingg module to find stop words in english
     stop_words = set([
         'i', 'me', 'my', 'myself', 'we', 'our', 'ours', 'ourselves', 'you', 'your', 'yours',
         'yourself', 'yourselves', 'he', 'him', 'his', 'himself', 'she', 'her', 'hers',

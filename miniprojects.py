@@ -1,8 +1,17 @@
-import requests
+'''
+About Programm : A program, which will show the statistics of the cryptocurrencies, with the
+following information: Name, Symbol, Current price, Market Cap, Total Volume, Price
+Change for 24 hours.
+Version : 1.0
+Author : Artash
+'''
 import json
 import time
+import requests
+
 
 def fetch_cryptocurrency_data():
+    '''function returns fetching datas '''
     try:
         url = "https://api.coingecko.com/api/v3/coins/markets"
         params = {
@@ -24,6 +33,7 @@ def fetch_cryptocurrency_data():
         return None
 
 def display_statistics(data, filter_name=None, filter_value=None):
+    '''function to display statistics'''
     print("---------------------------------------------------------------------------")
     print("Name\t\tSymbol\tPrice (USD)\tMarket Cap\tVolume (24h)\tPrice Change (24h)")
     print("---------------------------------------------------------------------------")
@@ -36,6 +46,7 @@ def display_statistics(data, filter_name=None, filter_value=None):
     print("---------------------------------------------------------------------------")
 
 def main():
+    '''main function'''
     while True:
         data = fetch_cryptocurrency_data()
         if data:
